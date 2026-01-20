@@ -1,0 +1,243 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #fff5f8 0%, #ffffff 50%, #fff0f5 100%);
+  overflow: hidden;
+}
+
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.floating-el {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.7;
+  animation: float-up 8s ease-in-out infinite;
+}
+
+@keyframes float-up {
+  0%, 100% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.hero-content {
+  text-align: center;
+  padding: 2rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-content.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-cat {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite, fadeInUp 0.6s ease-out both;
+  filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.3));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-greeting {
+  font-size: 1.25rem;
+  color: #ff69b4;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.hero-name {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.name-text {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.name-sparkle {
+  animation: sparkle-rotate 2s ease-in-out infinite;
+}
+
+.name-sparkle-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  animation: sparkle-rotate 2s ease-in-out infinite;
+}
+
+.btn-heart-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-left: 0.25rem;
+}
+
+@keyframes sparkle-rotate {
+  0%, 100% { transform: rotate(-10deg) scale(1); }
+  50% { transform: rotate(10deg) scale(1.2); }
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 105, 180, 0.5);
+}
+
+.btn-primary .btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+.btn-secondary {
+  background: white;
+  color: #ff69b4;
+  border: 2px solid #ffb6c1;
+}
+
+.btn-secondary:hover {
+  background: #fff5f8;
+  border-color: #ff69b4;
+  transform: translateY(-3px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-text {
+  font-size: 0.875rem;
+  color: #ff69b4;
+  font-weight: 500;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: #ff69b4;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,156 @@
+.easter-egg {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 105, 180, 0.9);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.heart {
+  position: absolute;
+  color: white;
+  animation: explode 2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2) rotate(360deg) translateY(-200px);
+    opacity: 0;
+  }
+}
+
+.easter-egg-message {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  animation: bounceIn 0.5s ease-out 0.3s both;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.big-heart {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.easter-egg-message p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.small-text {
+  font-size: 1.25rem !important;
+  opacity: 0.9;
+  margin-top: 0.5rem !important;
+}
+
+/* Decoration particles for Konami code and heart explosion */
+.egg-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: particleFloat 3s ease-out forwards;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) rotate(360deg) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.big-emoji {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+/* Disco mode overlay */
+.disco-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  animation: discoColors 0.5s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes discoColors {
+  0% { background: #ff69b4; }
+  16% { background: #ff6b6b; }
+  33% { background: #ffd93d; }
+  50% { background: #6bcb77; }
+  66% { background: #4d96ff; }
+  83% { background: #9b59b6; }
+  100% { background: #ff69b4; }
+}
+
+/* Cat rain effect */
+.cat-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cat-drop {
+  position: absolute;
+  top: -80px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  animation: catFall linear forwards;
+}
+
+@keyframes catFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.8;
+  }
+}

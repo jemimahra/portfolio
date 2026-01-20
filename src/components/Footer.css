@@ -1,0 +1,53 @@
+.footer {
+  background: linear-gradient(135deg, #fff5f8 0%, #fff0f5 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-heart {
+  color: #ff69b4;
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.copyright {
+  font-size: 0.875rem !important;
+  color: #999 !important;
+}
+
+.footer-heart-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.secret-hint {
+  font-size: 0.75rem !important;
+  color: #ddd !important;
+  margin-top: 1rem !important;
+  cursor: help;
+  transition: color 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.secret-hint:hover {
+  color: #ff69b4 !important;
+}
