@@ -8,7 +8,13 @@ import shootingStar from '../assets/decorations/shooting-star.png';
 
 function Projects() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const sectionRef = useRef(null);
+
+  const handleStarClick = () => {
+    setShowHint(true);
+    setTimeout(() => setShowHint(false), 3000);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,8 +61,14 @@ function Projects() {
     <section id="projects" className="projects" ref={sectionRef}>
       <div className="projects-container">
         <h2 className="section-title">
-          <img src={star} alt="star" className="title-icon-img" />
+          <img
+            src={star}
+            alt="star"
+            className="title-icon-img clickable"
+            onClick={handleStarClick}
+          />
           My Projects
+          {showHint && <span className="party-hint">psst... try typing "party"</span>}
         </h2>
 
         <div className={`projects-grid ${isVisible ? 'visible' : ''}`}>

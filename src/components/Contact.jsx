@@ -9,7 +9,13 @@ function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const sectionRef = useRef(null);
+
+  const handleHeartClick = () => {
+    setShowHint(true);
+    setTimeout(() => setShowHint(false), 3000);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,8 +71,14 @@ function Contact() {
     <section id="contact" className="contact" ref={sectionRef}>
       <div className={`contact-container ${isVisible ? 'visible' : ''}`}>
         <h2 className="section-title">
-          <img src={heart} alt="heart" className="title-icon-img" />
+          <img
+            src={heart}
+            alt="heart"
+            className="title-icon-img clickable"
+            onClick={handleHeartClick}
+          />
           Get In Touch
+          {showHint && <span className="love-hint">psst... try typing "love"</span>}
         </h2>
         <p className="contact-intro">
           Have a project in mind or just want to say hi? I'd love to hear from you!
@@ -141,8 +153,8 @@ function Contact() {
           <a href="https://www.linkedin.com/in/jemimah-ra" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
             <span>LinkedIn</span>
           </a>
-          <a href="mailto:jemimah0810@gmail.com" className="social-link" aria-label="Email">
-            <span>Email</span>
+          <a href="https://www.instagram.com/jemimahra/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+            <span>Instagram</span>
           </a>
         </div>
       </div>

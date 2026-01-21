@@ -5,7 +5,13 @@ import flower from '../assets/decorations/flower.png';
 
 function About() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const sectionRef = useRef(null);
+
+  const handleFlowerClick = () => {
+    setShowHint(true);
+    setTimeout(() => setShowHint(false), 3000);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,8 +44,14 @@ function About() {
     <section id="about" className="about" ref={sectionRef}>
       <div className={`about-container ${isVisible ? 'visible' : ''}`}>
         <h2 className="section-title">
-          <img src={flower} alt="flower" className="title-icon-img" />
+          <img
+            src={flower}
+            alt="flower"
+            className="title-icon-img clickable"
+            onClick={handleFlowerClick}
+          />
           About Me
+          {showHint && <span className="meow-hint">psst... try typing "meow"</span>}
         </h2>
 
         <div className="about-content">
@@ -48,8 +60,8 @@ function About() {
               <img src={catDuck} alt="Cute cat with duck" className="about-cat" />
             </div>
             <p>
-              Hi there! I'm a Business Analytics & Information Systems student at
-              Texas A&M University-Corpus Christi, graduating December 2025. I'm passionate
+              Hi there! I'm a recent graduate from Texas A&M University-Corpus Christi
+              with a BBA in Business Analytics & Information Systems. I'm passionate
               about turning data into actionable insights and building efficient systems.
             </p>
             <p>

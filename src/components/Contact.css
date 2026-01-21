@@ -150,6 +150,51 @@
   animation: pulse 1.5s ease-in-out infinite;
 }
 
+.title-icon-img.clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.title-icon-img.clickable:hover {
+  filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+}
+
+.section-title {
+  position: relative;
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.love-hint {
+  position: absolute;
+  font-size: 0.875rem;
+  color: #ff69b4;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  margin-left: 1rem;
+  animation: hintFadeIn 0.3s ease-out;
+  white-space: nowrap;
+}
+
+@keyframes hintFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .btn-icon-img {
   width: 24px;
   height: 24px;

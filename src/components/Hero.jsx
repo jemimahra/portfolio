@@ -48,7 +48,7 @@ function Hero() {
           <img src={shootingStar} alt="star" className="name-sparkle-img" />
         </h1>
         <p className="hero-tagline">
-          Business Analytics Student & Aspiring Data Professional
+          Business Analytics and Information Systems Graduate & Aspiring Data Professional
         </p>
         <div className="hero-buttons">
           <a href="#projects" className="btn btn-primary">
