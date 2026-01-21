@@ -7,6 +7,7 @@ import strawberry from '../assets/decorations/strawberry.png';
 import rainbow from '../assets/decorations/rainbow.png';
 import pretzel from '../assets/decorations/pretzel.png';
 import coffeePot from '../assets/decorations/coffee-pot.png';
+import shootingStar from '../assets/decorations/shooting-star.png';
 
 import catDonut from '../assets/cats/cat-donut.png';
 import catCoffee from '../assets/cats/cat-coffee.png';
@@ -20,6 +21,7 @@ import catRunning from '../assets/cats/cat-running.png';
 function EasterEgg() {
   const [konami, setKonami] = useState([]);
   const [showKonamiEgg, setShowKonamiEgg] = useState(false);
+  const [showLoveEgg, setShowLoveEgg] = useState(false);
   const [particles, setParticles] = useState([]);
 
   const [typedWord, setTypedWord] = useState('');
@@ -127,7 +129,7 @@ function EasterEgg() {
   };
 
   const triggerHeartExplosion = () => {
-    setShowKonamiEgg(true);
+    setShowLoveEgg(true);
 
     const newParticles = [];
     for (let i = 0; i < 40; i++) {
@@ -143,7 +145,7 @@ function EasterEgg() {
     setParticles(newParticles);
 
     setTimeout(() => {
-      setShowKonamiEgg(false);
+      setShowLoveEgg(false);
       setParticles([]);
     }, 3000);
   };
@@ -151,9 +153,14 @@ function EasterEgg() {
   return (
     <>
       {/* Disco mode overlay */}
-      {showDisco && <div className="disco-overlay" />}
+      {showDisco && (
+        <>
+          <div className="disco-overlay" />
+          <div className="party-text">PARTY TIME</div>
+        </>
+      )}
 
-      {/* Konami / Heart explosion */}
+      {/* Konami code easter egg */}
       {showKonamiEgg && (
         <div className="easter-egg">
           {particles.map((p) => (
@@ -172,8 +179,33 @@ function EasterEgg() {
             />
           ))}
           <div className="easter-egg-message">
-            <span className="big-emoji">✨</span>
-            <p>You found a secret!</p>
+            <img src={shootingStar} alt="shooting star" className="big-star-img" />
+            <p>You found the secret! Good job &lt;3 Now can you find the rest?</p>
+          </div>
+        </div>
+      )}
+
+      {/* Love easter egg */}
+      {showLoveEgg && (
+        <div className="easter-egg">
+          {particles.map((p) => (
+            <img
+              key={p.id}
+              src={p.decoration}
+              alt="decoration"
+              className="egg-particle"
+              style={{
+                left: p.x,
+                top: p.y,
+                width: p.size,
+                height: p.size,
+                animationDelay: `${p.delay}s`,
+              }}
+            />
+          ))}
+          <div className="easter-egg-message">
+            <img src={heart} alt="heart" className="big-star-img" />
+            <p>You're so smart! I'm so proud of you~ Have an amazing day!</p>
           </div>
         </div>
       )}

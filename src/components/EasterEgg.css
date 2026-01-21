@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Balonku';
+  src: url('../assets/fonts/BalonkuRegular-la1w.otf') format('opentype');
+}
+
 .easter-egg {
   position: fixed;
   inset: 0;
@@ -106,6 +111,15 @@
   animation: pulse 0.5s ease-in-out infinite;
 }
 
+.big-star-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1rem;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
 /* Disco mode overlay */
 .disco-overlay {
   position: fixed;
@@ -114,6 +128,34 @@
   pointer-events: none;
   animation: discoColors 0.5s linear infinite;
   opacity: 0.3;
+}
+
+.party-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Balonku', cursive;
+  font-size: 8rem;
+  color: white;
+  text-shadow:
+    0 0 20px #ff69b4,
+    0 0 40px #ff69b4,
+    0 0 60px #ff69b4,
+    4px 4px 0 #ff1493;
+  z-index: 10000;
+  pointer-events: none;
+  animation: partyPulse 0.3s ease-in-out infinite;
+  text-align: center;
+}
+
+@keyframes partyPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 @keyframes discoColors {
