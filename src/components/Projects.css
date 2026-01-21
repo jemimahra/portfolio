@@ -33,6 +33,7 @@
   height: 380px;
   perspective: 1000px;
   cursor: pointer;
+  transform-style: preserve-3d;
 }
 
 .card-inner {
@@ -41,6 +42,7 @@
   height: 100%;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  transform-origin: center center;
 }
 
 .project-card.flipped .card-inner {
